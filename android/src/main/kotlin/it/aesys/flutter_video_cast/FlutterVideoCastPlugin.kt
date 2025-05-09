@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-import io.flutter.plugin.common.PluginRegistry
+import io.flutter.plugin.common.PluginRegistry.Registrar
 
 /** FlutterVideoCastPlugin */
 public class FlutterVideoCastPlugin: FlutterPlugin, ActivityAware {
@@ -25,13 +25,9 @@ public class FlutterVideoCastPlugin: FlutterPlugin, ActivityAware {
   // É mantido apenas para compatibilidade com projetos antigos do Flutter (pré-1.12)
   companion object {
     @JvmStatic
-    fun registerWith(registrar: PluginRegistry.Registrar) {
-      registrar
-              .platformViewRegistry()
-              .registerViewFactory(
-                      "ChromeCastButton",
-                      ChromeCastFactory(registrar.messenger())
-              )
+    fun registerWith(registrar: Registrar) {
+      val factory = ChromeCastFactory(registrar.messenger())
+      registrar.platformViewRegistry().registerViewFactory("ChromeCastButton", factory)
     }
   }
 
