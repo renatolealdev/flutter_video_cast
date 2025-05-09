@@ -1,11 +1,9 @@
 package it.aesys.flutter_video_cast
 
-import androidx.annotation.NonNull;
-
+import androidx.annotation.NonNull
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-import io.flutter.plugin.common.PluginRegistry.Registrar
 
 /** FlutterVideoCastPlugin */
 public class FlutterVideoCastPlugin: FlutterPlugin, ActivityAware {
@@ -21,18 +19,8 @@ public class FlutterVideoCastPlugin: FlutterPlugin, ActivityAware {
             )
   }
 
-  // Este método estático é opcional e equivalente ao onAttachedToEngine.
-  // É mantido apenas para compatibilidade com projetos antigos do Flutter (pré-1.12)
-  companion object {
-    @JvmStatic
-    fun registerWith(registrar: Registrar) {
-      val factory = ChromeCastFactory(registrar.messenger())
-      registrar.platformViewRegistry().registerViewFactory("ChromeCastButton", factory)
-    }
-  }
-
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-    
+    // Nada a fazer aqui
   }
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
@@ -40,14 +28,14 @@ public class FlutterVideoCastPlugin: FlutterPlugin, ActivityAware {
   }
 
   override fun onDetachedFromActivityForConfigChanges() {
-
+    // Nada a fazer aqui
   }
 
   override fun onDetachedFromActivity() {
-
+    // Nada a fazer aqui
   }
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-
+    chromeCastFactory.activity = binding.activity
   }
 }
