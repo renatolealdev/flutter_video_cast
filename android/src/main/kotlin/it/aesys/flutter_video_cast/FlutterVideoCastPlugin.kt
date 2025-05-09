@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
+import io.flutter.plugin.common.PluginRegistry
 
 /** FlutterVideoCastPlugin */
 public class FlutterVideoCastPlugin: FlutterPlugin, ActivityAware {
@@ -24,8 +25,7 @@ public class FlutterVideoCastPlugin: FlutterPlugin, ActivityAware {
   // É mantido apenas para compatibilidade com projetos antigos do Flutter (pré-1.12)
   companion object {
     @JvmStatic
-    @Suppress("DEPRECATION")
-    fun registerWith(registrar: io.flutter.plugin.common.PluginRegistry.Registrar) {
+    fun registerWith(registrar: PluginRegistry.Registrar) {
       registrar
               .platformViewRegistry()
               .registerViewFactory(
