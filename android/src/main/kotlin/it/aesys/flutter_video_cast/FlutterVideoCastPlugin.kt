@@ -19,21 +19,15 @@ public class FlutterVideoCastPlugin: FlutterPlugin, ActivityAware {
             )
   }
 
-  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-    // Nada a fazer aqui
-  }
+  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {}
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
     chromeCastFactory.activity = binding.activity
   }
 
-  override fun onDetachedFromActivityForConfigChanges() {
-    // Nada a fazer aqui
-  }
+  override fun onDetachedFromActivityForConfigChanges() {}
 
-  override fun onDetachedFromActivity() {
-    // Nada a fazer aqui
-  }
+  override fun onDetachedFromActivity() {}
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
     chromeCastFactory.activity = binding.activity
